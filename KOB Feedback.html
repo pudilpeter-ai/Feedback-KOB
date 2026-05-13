@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback zu Besetzung und Klangbalance</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px auto;
+    max-width: 900px;
+    line-height: 1.5;
+    color: #222;
+    padding: 0 15px;
+}
+
+.question {
+    margin-top: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+label {
+    display: block;
+    margin: 6px 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #888;
+    border-radius: 4px;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.info {
+    background: #f4f4f4;
+    padding: 12px;
+    border-left: 4px solid #888;
+    margin: 20px 0;
+}
+
+.success-message {
+    display: none;
+    margin-top: 25px;
+    padding: 15px;
+    background: #e8f7e8;
+    border: 1px solid #7bc67b;
+    border-radius: 4px;
+}
+
+.error-message {
+    display: none;
+    margin-top: 25px;
+    padding: 15px;
+    background: #ffeaea;
+    border: 1px solid #d66;
+    border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+<h1>Feedback zu Besetzung und Klangbalance</h1>
+<p><em>Haydn 2032 / Hindemith–Schubert</em></p>
+
+<div class="info">
+    Dieses Formular dient dazu, Eindrücke zu Besetzung, Aufstellung und Klangbalance zu sammeln.
+    Die Antworten werden direkt per E-Mail übermittelt.
+</div>
+
+<form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="DEIN_ACCESS_KEY">
+    <input type="hidden" name="subject" value="Feedback zu Besetzung und Klangbalance">
+    <input type="hidden" name="from_name" value="KOB Feedbackformular">
+
+    <div class="question">
+        <h3>Name und Kontakt (optional)</h3>
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name">
+
+        <label for="E-Mail">E-Mail</label>
+        <input type="email" id="E-Mail" name="E-Mail">
+    </div>
+
+    <div class="question">
+        <h3>Instrument / Funktion</h3>
+        <label for="Instrument_Funktion">Bitte auswählen</label>
+        <select id="Instrument_Funktion" name="Instrument_Funktion" required>
+            <option value="">Bitte auswählen</option>
+            <option>Violine</option>
+            <option>Viola</option>
+            <option>Violoncello</option>
+            <option>Kontrabass / Violone</option>
+            <option>Holzbläser</option>
+            <option>Blechbläser</option>
+            <option>Pauke / Schlagwerk</option>
+            <option>Dirigat / Leitung</option>
+            <option>Zuhörer*in</option>
+            <option>Sonstiges</option>
+        </select>
+    </div>
+
+    <div class="question">
+        <h3>Wie hast du den Gesamtklang des Orchesters wahrgenommen?</h3>
+        <label><input type="radio" name="Gesamtklang" value="sehr ausgewogen" required> sehr ausgewogen</label>
+        <label><input type="radio" name="Gesamtklang" value="eher ausgewogen"> eher ausgewogen</label>
+        <label><input type="radio" name="Gesamtklang" value="neutral"> neutral</label>
+        <label><input type="radio" name="Gesamtklang" value="eher unausgewogen"> eher unausgewogen</label>
+        <label><input type="radio" name="Gesamtklang" value="deutlich unausgewogen"> deutlich unausgewogen</label>
+        <textarea name="Kommentar_Gesamtklang" placeholder="Optionaler Kommentar"></textarea>
+    </div>
+
+    <div class="question">
+        <h3>Wie hast du die Balance zwischen hohen, mittleren und tiefen Stimmen empfunden?</h3>
+        <label><input type="radio" name="Balance" value="sehr ausgewogen" required> sehr ausgewogen</label>
+        <label><input type="radio" name="Balance" value="eher ausgewogen"> eher ausgewogen</label>
+        <label><input type="radio" name="Balance" value="neutral"> neutral</label>
+        <label><input type="radio" name="Balance" value="eher unausgewogen"> eher unausgewogen</label>
+        <label><input type="radio" name="Balance" value="deutlich unausgewogen"> deutlich unausgewogen</label>
+        <textarea name="Kommentar_Balance" placeholder="Kommentar"></textarea>
+    </div>
+
+    <div class="question">
+        <h3>Wie hast du Präsenz und Tragfähigkeit des Bassbereichs wahrgenommen?</h3>
+        <label><input type="radio" name="Bassbereich" value="sehr tragfähig" required> sehr tragfähig</label>
+        <label><input type="radio" name="Bassbereich" value="eher tragfähig"> eher tragfähig</label>
+        <label><input type="radio" name="Bassbereich" value="neutral"> neutral</label>
+        <label><input type="radio" name="Bassbereich" value="eher zu schwach"> eher zu schwach</label>
+        <label><input type="radio" name="Bassbereich" value="deutlich zu schwach"> deutlich zu schwach</label>
+        <textarea name="Kommentar_Bassbereich" placeholder="Kommentar"></textarea>
+    </div>
+
+    <div class="question">
+        <h3>Weitere Gedanken oder Beobachtungen</h3>
+        <textarea name="Weitere_Gedanken" placeholder="Optionale Anmerkungen"></textarea>
+    </div>
+
+    <button type="submit">Feedback senden</button>
+
+    <div class="success-message" id="successMessage">
+        Vielen Dank! Das Feedback wurde erfolgreich gesendet.
+    </div>
+    <div class="error-message" id="errorMessage">
+        Es gab ein Problem beim Senden. Bitte später erneut versuchen.
+    </div>
+</form>
+
+<script>
+const form = document.getElementById('feedbackForm');
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 Sekunden Timeout
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            form.reset();
+            window.scrollTo(0, document.body.scrollHeight);
+        } else {
+            throw new Error('Fehler beim Senden');
+        }
+    } catch (error) {
+        clearTimeout(timeoutId);
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>
